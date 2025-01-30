@@ -1,7 +1,8 @@
 'use client'
 import { useState } from 'react'
+import { Message } from '../../app/type' // Import Message type
 
-export default function MessageForm({ onMessageCreated }: { onMessageCreated: (message: any) => void }) {
+export default function MessageForm({ onMessageCreated }: { onMessageCreated: (message: Message) => void }) {
   const [message, setMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -14,7 +15,7 @@ export default function MessageForm({ onMessageCreated }: { onMessageCreated: (m
     })
 
     if (res.ok) {
-      const newMessage = await res.json()
+      const newMessage: Message = await res.json() // Enforce the type
       onMessageCreated(newMessage)
       setMessage('')
     }
