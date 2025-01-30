@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useUser } from '@clerk/nextjs'
 import MessageForm from './components/MessageForm'
 import MessageList from './components/MessageList'
 import SignupLogger from './components/SignupLogger'
@@ -16,7 +15,6 @@ interface Message {
 }
 
 export default function Home() {
-  const { user, isLoaded } = useUser()
   const [messages, setMessages] = useState<Message[]>([])
 
   useEffect(() => {

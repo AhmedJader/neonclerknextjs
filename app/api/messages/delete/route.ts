@@ -1,7 +1,7 @@
 import { db } from '../../../db'
 import { UserMessages } from '../../../db/schema'
 import { auth } from '@clerk/nextjs/server'
-import { eq, desc, SQL, and } from 'drizzle-orm'
+import { eq, and } from 'drizzle-orm'
 
 export async function POST(req: Request) {
   const { userId } = await auth()
