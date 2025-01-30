@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { Message } from '../../app/type' // Import Message type
 
+
 export default function MessageForm({ onMessageCreated }: { onMessageCreated: (message: Message) => void }) {
   const [message, setMessage] = useState('')
 

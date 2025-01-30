@@ -1,6 +1,9 @@
-export interface Message {
-    message_id: string;
-    message: string;
-    createTs: string; // or Date if you're handling it as a Date object
-  }
-  
+// app/type.ts
+export type Message = {
+  message_id: string;
+  user_id: string;
+  createTs: Date;
+  message: string;
+  email: string;
+  name: string;
+};
