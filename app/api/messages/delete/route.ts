@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       .delete(UserMessages)
       .where(and(eq(UserMessages.message_id, messageId), eq(UserMessages.user_id, userId)))
     return new Response(JSON.stringify(deletedMessage), { status: 200 })
-  } catch (error) {
+  } catch (error: unknown) {
     return new Response(JSON.stringify({ error: 'Failed to delete message' }), { status: 500 })
   }
 }
