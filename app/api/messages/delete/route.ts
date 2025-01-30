@@ -15,8 +15,10 @@ export async function POST(req: Request) {
       .where(and(eq(UserMessages.message_id, messageId), eq(UserMessages.user_id, userId)))
     return new Response(JSON.stringify(deletedMessage), { status: 200 })
   } catch (error: unknown) {
+    console.error('Error deleting message:', error)
     return new Response(JSON.stringify({ error: 'Failed to delete message' }), { status: 500 })
   }
+  
 }
 // function and is imported from 'drizzle-orm'
 
